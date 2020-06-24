@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TravelEurope.Mobile.ViewModels;assembly=TravelEurope.Mobile"
+             xmlns:local="clr-namespace:TravelEurope.Mobile.Converters"
+             x:Class="TravelEurope.Mobile.Views.KategorijePage"
+             Title="{Binding Title}"
+             x:Name="MyKategorijePage">
+    
+
+    <ContentPage.BindingContext>
+        <vm:KategorijeVM></vm:KategorijeVM>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Sve ponuđene kategorije putovanja"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding KategorijeList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Naziv}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16"/>
+                                <Button Command="{Binding BindingContext.PretplatiCommand, Source={x:Reference MyKategorijePage}}" CommandParameter="{Binding .}"
+                                BackgroundColor="Green"
+                                Text="Pretplati se" 
+                                TextColor="White"
+                                FontAttributes="Bold" 
+                                Grid.Row="0"></Button>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="Kategorije na koje ste pretplaćeni"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding PretplaceneKategorijeList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Naziv}"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}"
+                           FontSize="16"/>
+                                <Button Command="{Binding BindingContext.UkiniPretplatuCommand, Source={x:Reference MyKategorijePage}}" CommandParameter="{Binding .}"
+                                BackgroundColor="Red"
+                                Text="Ukini pretplatu" 
+                                TextColor="White"
+                                FontAttributes="Bold" 
+                                Grid.Row="0"></Button>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Database\KorisniciFriends.cs" />
+    <Compile Remove="Migrations\20200103194007_inicijalna.cs" />
+    <Compile Remove="Migrations\20200103194007_inicijalna.Designer.cs" />
+    <Compile Remove="Migrations\20200208143544_x.cs" />
+    <Compile Remove="Migrations\20200211160147_Cijena.cs" />
+    <Compile Remove="Migrations\20200211160507_RemoveKategorijaRute.cs" />
+    <Compile Remove="Migrations\20200211160507_RemoveKategorijaRute.Designer.cs" />
+    <Compile Remove="Migrations\20200211201230_KlijentKorisnik.cs" />
+    <Compile Remove="Migrations\20200211202803_KlijentKorisnik1.cs" />
+    <Compile Remove="Migrations\20200211202843_Proba.cs" />
+    <Compile Remove="Migrations\20200211203023_KlijentKorisnikž.cs" />
+    <Compile Remove="Migrations\20200225181528_RacunId.cs" />
+    <Compile Remove="Migrations\20200225181528_RacunId.Designer.cs" />
+    <Compile Remove="Migrations\20200226151125_test.cs" />
+    <Compile Remove="Migrations\20200226153224_AddKlijent.cs" />
+    <Compile Remove="Migrations\20200226153745_AddKlijent.cs" />
+    <Compile Remove="Migrations\20200226154213_Klijnet.cs" />
+    <Compile Remove="Migrations\20200226154433_Proba.cs" />
+    <Compile Remove="Migrations\20200226154954_test.cs" />
+    <Compile Remove="Migrations\20200228204428_Kategorija.cs" />
+    <Compile Remove="Migrations\20200228204738_KategorijaPretplata.cs" />
+    <Compile Remove="Migrations\20200228204738_KategorijaPretplata.Designer.cs" />
+    <Compile Remove="Migrations\20200229200001_AddKategorije.cs" />
+    <Compile Remove="Migrations\20200229200001_AddKategorije.Designer.cs" />
+    <Compile Remove="Migrations\20200301172011_VelikaPromjenaUBazi.cs" />
+    <Compile Remove="Migrations\20200301172139_VelikaPromjenaUBazi.cs" />
+    <Compile Remove="Migrations\20200301172139_VelikaPromjenaUBazi.Designer.cs" />
+    <Compile Remove="Migrations\20200301212215_Promjene.cs" />
+    <Compile Remove="Migrations\20200302203028_AddRecenzijaAddPreporuka.cs" />
+    <Compile Remove="Migrations\20200302203130_AddRecenzijaAddPreporuka.cs" />
+    <Compile Remove="Migrations\20200302203158_NovaBaza9-Reason-AddRecenzijaAddPreporuka.cs" />
+    <Compile Remove="Migrations\20200302203405_Proba.cs" />
+    <Compile Remove="Migrations\20200302203520_NovaBaza9-Reason-AddRecenzijaAddPreporuka.cs" />
+    <Compile Remove="Migrations\20200302203520_NovaBaza9-Reason-AddRecenzijaAddPreporuka.Designer.cs" />
+    <Compile Remove="Migrations\20200302205221_NovaBaza-2-3-2020-Recenzije.cs" />
+    <Compile Remove="Migrations\20200302210110_NovaBaza-0-2-3-2020-Recenzije.cs" />
+    <Compile Remove="Migrations\20200302212231_NovaBazaBezOcjene.cs" />
+    <Compile Remove="Migrations\20200308042647_Proba.cs" />
+    <Compile Remove="Migrations\20200308045949_Proba.cs" />
+    <Compile Remove="Migrations\20200308050051_Proba.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Database\ItemKategorije.cs~RFb8b1edd.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Stripe.net" Version="35.3.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="4.0.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TravelEurope.Model\TravelEurope.Model.csproj" />
+  </ItemGroup>
+
+</Project>

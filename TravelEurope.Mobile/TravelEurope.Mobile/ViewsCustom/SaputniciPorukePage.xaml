@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TravelEurope.Mobile.Converters"
+             x:Class="TravelEurope.Mobile.ViewsCustom.SaputniciPorukePage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+            <local:DatetimeToStringConverter x:Key="cnvDateTimeConverter"></local:DatetimeToStringConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout BackgroundColor="DarkGreen">
+                    <Label Margin="0,3" 
+                       FontSize="16" 
+                       TextColor="White" 
+                       Text="Pošaljite poruku vašem saputniku na putovanju: "
+                       HorizontalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout>
+                    <ListView ItemsSource="{Binding listaKorisnikaSaIstogPutovanja}" ItemSelected="ListView_OnItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Ime:  " 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                <Label Text="{Binding Korisnik.Ime}"
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Prezime:  " 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                <Label Text="{Binding Korisnik.Prezime}"
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Naziv zajedničkog putovanja: " 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                <Label Text="{Binding TuristRuta.Naziv}"
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Datum putovanja: " 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                <Label Text="{Binding TuristRuta.DatumPutovanja, Converter={StaticResource cnvDateTimeConverter}}" 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout BackgroundColor="DarkRed">
+                    <Label Margin="0,3" 
+                       FontSize="16" 
+                       TextColor="White" 
+                       Text="Vaše primljene poruke: "
+                       HorizontalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout>
+                    <ListView ItemsSource="{Binding listaPoruka}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Posiljalac:  " 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                <Label Text="{Binding Posiljalac.KorisnickoIme}"
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Sadrzaj:  " 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                <Label Text="{Binding Sadrzaj}"
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Datum poruke: " 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                <Label Text="{Binding DatumVrijeme, Converter={StaticResource cnvDateTimeConverter}}" 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+    
+    
+    
+    
+    
+    
+    

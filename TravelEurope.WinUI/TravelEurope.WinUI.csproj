@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8CC6234E-61C0-4111-9D6C-E3E8C96FA3B0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TravelEurope.WinUI</RootNamespace>
+    <AssemblyName>TravelEurope.WinUI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIService.cs" />
+    <Compile Include="Helper\ComboBoxLoad.cs" />
+    <Compile Include="frmIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIndex.Designer.cs">
+      <DependentUpon>frmIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageHelper.cs" />
+    <Compile Include="Korisnici\frmKorisnici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmKorisnici.Designer.cs">
+      <DependentUpon>frmKorisnici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnici\frmKorisniciDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmKorisniciDetalji.Designer.cs">
+      <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Destinacije\frmDestinacije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Destinacije\frmDestinacije.Designer.cs">
+      <DependentUpon>frmDestinacije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Destinacije\frmDestinacijeDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Destinacije\frmDestinacijeDetalji.Designer.cs">
+      <DependentUpon>frmDestinacijeDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lokacije\frmDodajDrzavu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lokacije\frmDodajDrzavu.Designer.cs">
+      <DependentUpon>frmDodajDrzavu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lokacije\frmDrzave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lokacije\frmDrzave.Designer.cs">
+      <DependentUpon>frmDrzave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lokacije\frmGradoviDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lokacije\frmGradoviDetalji.Designer.cs">
+      <DependentUpon>frmGradoviDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lokacije\frmUrediDrzavu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lokacije\frmUrediDrzavu.Designer.cs">
+      <DependentUpon>frmUrediDrzavu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rezervacije\frmRezervacije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezervacije\frmRezervacije.Designer.cs">
+      <DependentUpon>frmRezervacije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuristickeRute\frmTuristickeRute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuristickeRute\frmTuristickeRute.Designer.cs">
+      <DependentUpon>frmTuristickeRute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuristickeRute\frmTuristickeRuteDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuristickeRute\frmTuristickeRuteDetalji.Designer.cs">
+      <DependentUpon>frmTuristickeRuteDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuristickeRute\frmTuristickeRuteDetaljiSlike.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuristickeRute\frmTuristickeRuteDetaljiSlike.Designer.cs">
+      <DependentUpon>frmTuristickeRuteDetaljiSlike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuristickeRute\frmTuristickeRuteDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuristickeRute\frmTuristickeRuteDodaj.Designer.cs">
+      <DependentUpon>frmTuristickeRuteDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuristickiVodici\frmTuristickiVodici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuristickiVodici\frmTuristickiVodici.Designer.cs">
+      <DependentUpon>frmTuristickiVodici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuristickiVodici\frmTuristickiVodiciDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuristickiVodici\frmTuristickiVodiciDetalji.Designer.cs">
+      <DependentUpon>frmTuristickiVodiciDetalji.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmIndex.resx">
+      <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici\frmKorisnici.resx">
+      <DependentUpon>frmKorisnici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici\frmKorisniciDetalji.resx">
+      <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Destinacije\frmDestinacije.resx">
+      <DependentUpon>frmDestinacije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Destinacije\frmDestinacijeDetalji.resx">
+      <DependentUpon>frmDestinacijeDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lokacije\frmDodajDrzavu.resx">
+      <DependentUpon>frmDodajDrzavu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lokacije\frmDrzave.resx">
+      <DependentUpon>frmDrzave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lokacije\frmGradoviDetalji.resx">
+      <DependentUpon>frmGradoviDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lokacije\frmUrediDrzavu.resx">
+      <DependentUpon>frmUrediDrzavu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Rezervacije\frmRezervacije.resx">
+      <DependentUpon>frmRezervacije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuristickeRute\frmTuristickeRute.resx">
+      <DependentUpon>frmTuristickeRute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuristickeRute\frmTuristickeRuteDetalji.resx">
+      <DependentUpon>frmTuristickeRuteDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuristickeRute\frmTuristickeRuteDetaljiSlike.resx">
+      <DependentUpon>frmTuristickeRuteDetaljiSlike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuristickeRute\frmTuristickeRuteDodaj.resx">
+      <DependentUpon>frmTuristickeRuteDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuristickiVodici\frmTuristickiVodici.resx">
+      <DependentUpon>frmTuristickiVodici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuristickiVodici\frmTuristickiVodiciDetalji.resx">
+      <DependentUpon>frmTuristickiVodiciDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\TravelEurope.Model.Grad.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Flurl.Http">
+      <Version>2.4.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms">
+      <Version>150.1400.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TravelEurope.Model\TravelEurope.Model.csproj">
+      <Project>{4c6bda86-7541-410e-80f4-06b8dd243b84}</Project>
+      <Name>TravelEurope.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="black-and-white-panda-logo-users-group-encapsulated-postscript-user-profile-group-png-clip-art.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

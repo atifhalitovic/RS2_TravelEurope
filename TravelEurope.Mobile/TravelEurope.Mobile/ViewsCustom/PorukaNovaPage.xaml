@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelEurope.Mobile.ViewsCustom.PorukaNovaPage"
+             xmlns:viewModels="clr-namespace:TravelEurope.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:TravelEurope.Mobile.Converters"
+             >
+    <ContentPage.BindingContext>
+        <viewModels:PorukeNovaVM></viewModels:PorukeNovaVM>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+            <converters:DatetimeToStringConverter x:Key="dtsConv"></converters:DatetimeToStringConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="DarkGray"
+                     Orientation="Vertical">
+            <!--PageTitle-->
+            <StackLayout BackgroundColor="MediumPurple">
+                <Label Margin="0,3" 
+                       FontSize="16" 
+                       TextColor="White" 
+                       Text="Detalji poruke"
+                       HorizontalOptions="Center"></Label>
+            </StackLayout>
+
+            <!--SlikaInformacijeSadrzajPoruke-->
+
+            <!--SlikaInformacije-->
+            <Grid Margin="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid >
+                    <Grid  BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1" Padding="6">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <!--PosiljaocInfo-->
+                            <Label Text="Pošiljalac :"
+                                       HorizontalTextAlignment="End"
+                                   FontAttributes="Bold"
+                                       TextColor="Black"></Label>
+                            <Label Text="{Binding TrenutniKorisnik.KorisnickoIme}"
+                                   TextColor="Black"
+                                   Grid.Column="1"></Label>
+
+                            <!--PrimaocInfo-->
+                            <Label Text="Primalac :"
+                                       HorizontalTextAlignment="End"
+                                   Grid.Row="1"
+                                   FontAttributes="Bold"
+                                       TextColor="Black"></Label>
+                            <Label Text="{Binding Primalac.KorisnickoIme}"
+                                   TextColor="Black"
+                                   Grid.Row="1"
+                                   Grid.Column="1"></Label>
+
+                            <!--DatumVrijeme-->
+                            <Label Text="Datum i vrijeme :"
+                                   FontAttributes="Bold"
+                                       TextColor="Black"
+                                   Grid.Row="2"></Label>
+                            <Label Text="{Binding DatumVrijeme, Converter={StaticResource dtsConv}}"
+                                   TextColor="Black"
+                                   Grid.Row="2"
+                                   Grid.Column="1"></Label>
+
+                            <Label Text="Tema :"
+                                   FontAttributes="Bold"
+                                       TextColor="Black"
+                                   Grid.Row="2"></Label>
+                            <Label Text="{Binding DatumVrijeme, Converter={StaticResource dtsConv}}"
+                                   TextColor="Black"
+                                   Grid.Row="2"
+                                   Grid.Column="1"></Label>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+
+                <!--NaslovSadrzaj-->
+                <Grid Grid.Row="1"
+                      BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="8*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Sadržaj poruke :"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               Grid.Row="1"></Label>
+
+                    <Entry Text="{Binding SadrzajPoruke}"
+                           BackgroundColor="WhiteSmoke"
+                           Margin="10,10,10,10"
+                           Grid.Row="1"
+                           Grid.Column="1"></Entry>
+                </Grid>
+
+                <!--PosaljiButton-->
+                <Button Text="Pošalji"
+                        TextColor="White"
+                        Command="{Binding PosaljiCommand}"
+                        Clicked="ButtonPosalji_Clicked"
+                        Grid.Row="2"
+                      BackgroundColor="Blue"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center">
+                </Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

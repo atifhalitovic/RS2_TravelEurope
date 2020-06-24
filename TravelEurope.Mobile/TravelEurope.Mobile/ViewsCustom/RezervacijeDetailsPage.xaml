@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelEurope.Mobile.ViewsCustom.RezervacijeDetailsPage"
+             xmlns:local="clr-namespace:TravelEurope.Mobile.Converters"
+             Title="{Binding Title}"
+             x:Name="MyRezervacijeDetailsPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Datum vaše rezervacije: " BackgroundColor="ForestGreen"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Rezervacija.DatumRezervacije}" BackgroundColor="ForestGreen"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Naziv: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Rezervacija.TuristRuta.Naziv}" FontAttributes="None"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Opis:"/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Rezervacija.TuristRuta.Opis}" FontAttributes="None"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Lokacija:"/>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Rezervacija.TuristRuta.Lokacija.Naziv}" FontAttributes="None"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Datum putovanja:"/>
+                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Rezervacija.TuristRuta.DatumPutovanja}" FontAttributes="None"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="Trajanje putovanja: "/>
+                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding Rezervacija.TuristRuta.TrajanjePutovanja}" FontAttributes="None"/>
+
+                    <Label Grid.Row="6" Grid.Column="0" Text="Očekivani datum povratka:"/>
+                    <Label Grid.Row="6" Grid.Column="1" Text="{Binding Rezervacija.DatumPovratka}" FontAttributes="None"/>
+
+                    <Label Grid.Row="7" Grid.Column="0" Text="Cijena paketa:"/>
+                    <Label Grid.Row="7" Grid.Column="1" Text="{Binding Rezervacija.TuristRuta.CijenaPaketa}" FontAttributes="None"/>
+
+                    <Label Grid.Row="8" Grid.Column="0" Text="Cijena osiguranja:"/>
+                    <Label Grid.Row="8" Grid.Column="1" Text="{Binding Rezervacija.TuristRuta.CijenaOsiguranja}" FontAttributes="None"/>
+
+                    <Label Grid.Row="9" Grid.Column="0" Text="Ukupna cijena (put+osiguranje):  "/>
+                    <Label Grid.Row="9" Grid.Column="1" Text="{Binding Rezervacija.UkupnaCijena}" FontAttributes="Bold"/>
+
+                    <Label Grid.Row="10" Grid.Column="0" Text="Vaša ocjena:"/>
+                    <Label Grid.Row="10" Grid.Column="1" Text="{Binding Rezervacija.Ocjena}" FontAttributes="Bold"/>
+
+                </Grid>
+
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton                    
+                            Command="{Binding OcijeniStarCommand}"
+                            BackgroundColor="Transparent"
+                            Source="{Binding Star1.Slika}"
+                            WidthRequest="32"
+                            CommandParameter="1"
+                            />
+                    <ImageButton                    
+                            Command="{Binding OcijeniStarCommand}"
+                            BackgroundColor="Transparent"
+                            Source="{Binding Star2.Slika}" 
+                            WidthRequest="32"
+                            CommandParameter="2"
+                            />
+                    <ImageButton                    
+                            Command="{Binding OcijeniStarCommand}"
+                            BackgroundColor="Transparent"
+                            Source="{Binding Star3.Slika}" 
+                            WidthRequest="32"
+                            CommandParameter="3"
+                            />
+                    <ImageButton                    
+                            Command="{Binding OcijeniStarCommand}"
+                            BackgroundColor="Transparent"
+                            Source="{Binding Star4.Slika}" 
+                            WidthRequest="32"
+                            CommandParameter="4"
+                            />
+                    <ImageButton                    
+                            Command="{Binding OcijeniStarCommand}"
+                            BackgroundColor="Transparent"
+                            Source="{Binding Star5.Slika}" 
+                            WidthRequest="32"
+                            CommandParameter="5"
+                            />
+                </StackLayout>
+                <Button Command="{Binding UkiniRezervacijuCommand}"
+                        BackgroundColor="Red"
+                        Text="Otkaži" 
+                        TextColor="White"
+                        FontAttributes="Bold"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

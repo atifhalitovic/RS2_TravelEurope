@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TravelEurope.Mobile.Converters"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="TravelEurope.Mobile.ViewsCustom.TuristRuteDetailsPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+            <local:DatetimeToStringConverter x:Key="cnvDateTimeConverter"></local:DatetimeToStringConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Label Text="{Binding Ruta.Naziv}" FontAttributes="Bold" FontSize="20" />
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ContentView Padding="0,5,0,5" VerticalOptions="FillAndExpand">
+                        <Image x:Name="PrikazanaSlikaImage" Source="{Binding PrikazanaSlika, Converter={StaticResource imgConv}}" VerticalOptions="Center" HeightRequest="200" >
+                            <Image.GestureRecognizers>
+                                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_Left"/>
+                                <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_Right"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </ContentView>
+                </StackLayout>
+            </StackLayout>
+
+            <syncfusion:SfListView Orientation="Horizontal" ItemsSource="{Binding SlikeList}" VerticalOptions="CenterAndExpand" ItemSpacing="5" ItemSize="150" IsScrollBarVisible="true" HeightRequest="70">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="FillAndExpand" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}" Aspect="Fill" HeightRequest="50"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+
+            <ScrollView>
+                <StackLayout >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="Naziv rute: "/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Ruta.Naziv}" FontAttributes="None"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Kategorija: "/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Ruta.Kategorija.Naziv}" FontAttributes="None"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Opis:"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Ruta.Opis}" FontAttributes="None"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Lokacija:"/>
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Ruta.Lokacija.Naziv}" FontAttributes="None"/>
+
+                        <Label Grid.Row="4" Grid.Column="0" Text="Datum putovanja:"/>
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Ruta.DatumPutovanja}" FontAttributes="None"/>
+
+                        <Label Grid.Row="5" Grid.Column="0" Text="Cijena paketa:"/>
+                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding Ruta.CijenaPaketa}" FontAttributes="None"/>
+
+                        <Label Grid.Row="6" Grid.Column="0" Text="Cijena osiguranja:"/>
+                        <Label Grid.Row="6" Grid.Column="1" Text="{Binding Ruta.CijenaOsiguranja}" FontAttributes="None"/>
+
+                        <Label Grid.Row="7" Grid.Column="0" Text="Trajanje putovanja: "/>
+                        <Label Grid.Row="7" Grid.Column="1" Text="{Binding Ruta.TrajanjePutovanja}" FontAttributes="None"/>
+
+                        <Label Grid.Row="8" Grid.Column="0" Text="Ukupna cijena (put+osiguranje):  "/>
+                        <Label Grid.Row="8" Grid.Column="1" Text="{Binding Ruta.UkupnaCijena}" FontAttributes="Bold"/>
+                    </Grid>
+                    <Grid Grid.Row="10" Margin="0,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button
+                        Clicked="Button_Clicked"
+                        BackgroundColor="ForestGreen"
+                        Text="Rezerviši" 
+                        TextColor="White"
+                        FontAttributes="Bold" 
+                        Grid.Row="0"></Button>
+                    </Grid>
+
+
+                    <Label Text="Preporučeni turist paketi na osnovu izabranog"
+                       TextColor="Black"
+                   Margin="10,0,0,0"
+                   FontSize="16"
+                   FontAttributes="Bold"></Label>
+
+                    <StackLayout>
+                        <ListView ItemsSource="{Binding PreporuceneRuteList}" ItemSelected="ListView_OnItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}" HeightRequest="100" />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Naziv}"
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Kategorija.Naziv}"
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="Datum putovanja: " 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                    <Label Text="{Binding DatumPutovanja, Converter={StaticResource cnvDateTimeConverter}}" 
+                                               TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="14"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

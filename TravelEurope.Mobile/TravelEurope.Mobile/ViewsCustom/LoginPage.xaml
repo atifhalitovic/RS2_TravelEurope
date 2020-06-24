@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TravelEurope.Mobile.ViewModels"
+             x:Class="TravelEurope.Mobile.ViewsCustom.LoginPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:LoginVM></vm:LoginVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="10" VerticalOptions="CenterAndExpand">
+
+            <Entry Placeholder="Korisničko ime" x:Name="KorisnickoIme" Text="{Binding Username}"></Entry>
+
+            <Entry Placeholder="Lozinka" Text="{Binding Password}" IsPassword="True"></Entry>
+
+            <Button Command="{Binding LoginCommand}"  HorizontalOptions="FillAndExpand" Text="Prijavi se"></Button>
+            <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
